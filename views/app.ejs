@@ -1,0 +1,65 @@
+<%- include('partials/head'); %>
+
+<div class="app h-100">
+  <!-- Sidebar -->
+  <aside id="sidebar" class="bg-alt d-flex d-sm-flex flex-column h-100">
+    <div class="w-100 px-3 py-3">
+      <div class="d-flex align-items-center">
+        <img class="mr-2 rounded-circle" src="/images/user.svg" height="35" />
+        <div class="font-weight-semibold" href="/">Display Name</div>
+        <span class="fas fa-chevron-down text-muted mx-2"></span>
+      </div>
+    </div>
+
+    <!-- Chat list -->
+    <div class="flex-scroll-y scrollbar-alt-alt p-2">
+      <% for (var i=1; i <=25;  i++ ) { %>
+        <div class="<% if (i===1) { %>bg-alt-alt<% } %>
+            bg-hover-alt-alt rounded-lg d-flex align-items-center px-2 py-1 my-1 user-select-none">
+          <img class="mr-2 rounded-circle" src="/images/user.svg" height="30" />
+          Display Name
+        </div>
+      <% } %>
+    </div>
+  </aside>
+
+  <!-- Messages -->
+  <main id="main" class="d-none d-sm-flex flex-column w-100 h-100">
+    <!-- Nav -->
+    <div class="font-weight-semibold d-flex justify-content-between align-items-center p-3">
+      <img class="rounded-circle mr-2" src="/images/user.svg" height="35" />
+      Display Name
+      <div class="lead ml-auto mx-n1">
+        <span class="fas fa-cog ml-auto mx-1"></span>
+        <span class="text-muted">|</span>
+        <span class="fas fa-user-circle mx-1"></span>
+      </div>
+    </div>
+
+    <!-- History -->
+    <div id="history" class="flex-scroll-y scrollbar-alt px-3">
+      <% for (let i=1; i <=8;  i++) { %>
+        <div class="message d-flex my-3">
+          <img class="mr-2 rounded-circle" src="/images/user.svg" height="35" />
+          <div class="d-flex flex-column mt-1">
+            <div class="text-primary">Display Name <%= i %></div>
+            <div class="mt-1">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              erat, sed diam voluptua. At vero eos et accusam et justo duo
+              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+              sanctus est Lorem ipsum dolor sit amet.
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+
+    <!-- Input -->
+    <div class="bg-alt mx-3 mb-3 p-2 rounded-lg">
+      <div id="messagebox" class="overflow-y-auto scrollbar-alt-alt" contenteditable="true"></div>
+    </div>
+  </main>
+</div>
+
+<%- include('partials/script'); %>

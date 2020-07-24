@@ -1,12 +1,11 @@
-<%- include('partials/header'); %>
-<div id="main" class="error404">
-  <div class="container-fluid">
-    <div class="row">
-      <main role="main" class="col text-center pt-5">
-        <h1><%= error.status %></h1>
-        <h4><%= message %></h3>
-      </main>
-    </div>
+<%- include('partials/head'); %>
+<%- include('partials/home_nav'); %>
+<div class="container-fluid">
+  <div class="row">
+    <main class="col text-center pt-5">
+      <h1 class="display-2"><%= error.status %></h1>
+      <h1><%= message %></h1>
+    </main>
   </div>
 </div>
-<%- include('partials/footer'); %>
+<%- include('partials/script'); %>

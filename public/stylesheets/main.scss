@@ -1,0 +1,176 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "./_inter";
+
+$fa-font-path: "/fonts";
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+
+
+:root {
+  --bg: #fff;
+  --bg-alt: #ece8ee;
+  --bg-alt-alt: #ccc;
+  --fg: #222;
+  --fg-alt: #555;
+}
+
+
+html, body { height: 100%; }
+body {
+  font-family: Inter, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+}
+
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+}
+
+
+/*
+ * Login/Register page
+ */
+
+.login {
+  background: rgba(0, 0, 0, 0) url("/images/unsplash/kalen-emsley-Bkci_8qcdvQ-unsplash.jpg") repeat fixed center center / cover;
+  @include media-breakpoint-up(md) {
+    .btn { width: 200px; }
+  }
+}
+
+
+/*
+ * App page
+ */
+
+.app {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: minmax(1px, 1fr);
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: 210px minmax(1px, 1fr);
+  }
+  @include media-breakpoint-up(md) {
+    grid-template-columns: 270px minmax(1px, 1fr);
+  }
+
+  scrollbar-color: transparent transparent;
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 20px;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  #sidebar {
+    grid-column: 1 / 2;
+  }
+  #main {
+    grid-column: 2 / 3;
+  }
+}
+
+.message {
+  max-width: 800px;
+}
+
+#messagebox {
+  cursor: text;
+  max-height: 10rem;
+  word-wrap: break-word;
+  width: 100%;
+  &:empty:before {
+    content:"Write a message…";
+    color: var(--gray);
+  }
+}
+
+
+/*
+ * Missing utility/component classes from Bootstrap
+ */
+
+
+.bg { background: var(--bg); }
+.bg-alt { background: var(--bg-alt); }
+.bg-alt-alt { background: var(--bg-alt-alt); }
+.bg-hover:hover { background: var(--bg); }
+.bg-hover-alt:hover { background: var(--bg-alt); }
+.bg-hover-alt-alt:hover { background: var(--bg-alt-alt); }
+
+.resize-none { resize: none; }
+.overflow-x-auto { overflow-x: auto; }
+.overflow-y-auto { overflow-y: auto; }
+.font-weight-semibold { font-weight: 500; }
+
+.flex-scroll-y {
+  flex: 1 1 0;
+  overflow-y: auto;
+}
+
+.scrollbar:hover {
+  scrollbar-color: var(--bg) transparent;
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--bg);
+  }
+}
+
+.scrollbar-alt:hover {
+  scrollbar-color: var(--bg-alt) transparent;
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--bg-alt);
+  }
+}
+
+.scrollbar-alt-alt:hover {
+  scrollbar-color: var(--bg-alt-alt) transparent;
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--bg-alt-alt);
+  }
+}
+
+.btn-fg {
+  background-color: var(--fg);
+  color: var(--bg);
+  &:hover, &:active {
+    background-color: var(--fg-alt);
+    color: var(--bg);
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem var(--bg-alt);
+  }
+}
+
+.btn-bg {
+  background-color: var(--bg-alt);
+  color: var(--fg);
+  &:hover, &:active {
+    background-color: var(--bg-alt-alt);
+    color: var(--fg);
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem var(--bg-alt);
+  }
+}
+
+
+/*
+ * Idiotic Bootstrap defaults
+ */
+
+// You can't tell the difference between sm and lg
+.rounded-lg {
+  border-radius: 0.5rem !important;
+}
+
+// We don't want dark text in dark theme
+.text-body {
+  color: var(--fg) !important;
+}
