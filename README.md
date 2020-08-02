@@ -9,18 +9,18 @@ To get started, you should install dependencies and clone repository.
 ### Linux
 
 ```sh
-$ sudo apt install git nodejs   # Debian-based
-$ sudo dnf install git nodejs   # Fedora-based
-$ sudo pacman -S git nodejs     # Arch-based
+$ sudo apt install git npm      # Debian-based
+$ sudo dnf install git npm      # Fedora-based
+$ sudo pacman -S git npm        # Arch-based
 $ sudo xbps-install git nodejs  # Void-based
 ```
 
 ### \*BSD
 
 ```sh
-$ sudo pkg install git node     # FreeBSD
-$ sudo pkg_add git node         # OpenBSD
-$ sudo pkg_add git nodejs       # NetBSD
+$ sudo pkg install git npm  # FreeBSD
+$ sudo pkg_add git node     # OpenBSD
+$ sudo pkg_add git npm      # NetBSD
 ```
 
 ### macOS
