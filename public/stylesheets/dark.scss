@@ -4,8 +4,13 @@
   --bg-alt-alt: #3f414d;
   --fg: #eee;
   --fg-alt: #ccc;
+  --fg-alt-alt: #aaa;
 }
 
-.login {
+.login-container {
   background: rgba(0, 0, 0, 0) url("/images/unsplash/kevin-brunet-4-3cfgN9GV8-unsplash.jpg") repeat fixed center center / cover;
+}
+
+.form-control::placeholder {
+  color: var(--fg-alt-alt);
 }
