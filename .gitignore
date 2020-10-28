@@ -4,5 +4,6 @@ npm-debug.log
 .env
 .DS_Store
 public/stylesheets/*.css*
+public/img/
 firebase.json
 firebase.admin.json

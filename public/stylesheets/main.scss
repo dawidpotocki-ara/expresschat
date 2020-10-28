@@ -24,9 +24,18 @@ body {
   line-height: 1.5;
 }
 
+pre { color: var(--fg); }
+
+summary {
+  display: block;
+  &::-webkit-details-marker { display: none; }
+  &:focus { outline: none; }
+}
+
 [contenteditable]:focus {
     outline: 0px solid transparent;
 }
+
 
 
 /*
@@ -60,6 +69,7 @@ body {
 .app {
   display: grid;
   overflow: hidden;
+  height: 100%;
   grid-template-columns: minmax(1px, 1fr);
   @include media-breakpoint-up(sm) {
     grid-template-columns: 210px minmax(1px, 1fr);
@@ -81,6 +91,32 @@ body {
   }
 }
 
+#account-settings-container {
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  padding: 3rem;
+  @include media-breakpoint-down(xs) {
+    padding: 1rem;
+  }
+}
+
+.settings {
+  @extend .app;
+  background-color: var(--bg);
+  border-radius: 0.75rem;
+  grid-template-columns: min-content minmax(1px, 1fr);
+  @include media-breakpoint-down(xs) {
+    #sidebar {
+      font-size: 25px;
+    }
+  }
+}
+
 @include media-breakpoint-up(sm) {
   #sidebar {
     grid-column: 1 / 2;
@@ -90,17 +126,76 @@ body {
   }
 }
 
-.message {
+
+/* Sidebar */
+
+.sidebar-option {
+  color: var(--fg);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  padding: $spacer*.25 $spacer*.75;
+  margin: $spacer*.25 0;
+  user-select: none;
+  white-space: nowrap;
+  &:hover {
+    background: var(--bg-alt-alt);
+    color: var(--fg);
+    text-decoration: none;
+  }
+  &.selected { background: var(--bg-alt-alt); }
+}
+
+.sidebar-dropdown {
+  position: absolute;
+  white-space: nowrap;
+  background: var(--bg-alt-alt);
+  border-radius: 0.75rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+    margin-top: $spacer*.5;
+  }
+  @include media-breakpoint-up(sm) {
+    max-width: 20rem;
+    left: 80%;
+  }
+}
+
+.sidebar-dropdown-item {
+  display: block;
+  padding: $spacer*.75 $spacer*1.5;
+  color: var(--fg);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-dropdown-link {
+  @extend .sidebar-dropdown-item;
+  &:hover {
+    background-color: var(--bg-alt);
+    color: var(--fg);
+    text-decoration: none;
+  }
+  &:last-child {
+    border-bottom-right-radius: $spacer*.75;
+    border-bottom-left-radius: $spacer*.75;
+  }
+}
+
+
+.mainbox {
   max-width: 800px;
 }
 
-#messagebox {
+#message-box-ui {
   cursor: text;
   max-height: 10rem;
   word-wrap: break-word;
   width: 100%;
   &:empty:before {
-    content:"Write a message…";
+    content: "Write a message…";
     color: var(--gray);
   }
 }

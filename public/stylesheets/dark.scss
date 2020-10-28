@@ -11,6 +11,52 @@
   background: rgba(0, 0, 0, 0) url("/images/unsplash/kevin-brunet-4-3cfgN9GV8-unsplash.jpg") repeat fixed center center / cover;
 }
 
+
+
+/*
+ * Bootstrap crap
+ */
+
 .form-control::placeholder {
   color: var(--fg-alt-alt);
+}
+
+a.text-danger:hover, a.text-danger:focus {
+  color: #f23a4c !important;
+}
+
+.alert-primary {
+  background-color: #004085;
+  border-color: #004085;
+  color: #cce5ff;
+}
+
+.alert-secondary {
+  background-color: #383d41;
+  border-color: #383d41;
+  color: #e2e3e5;
+}
+
+.alert-success {
+  background-color: #155724;
+  border-color: #155724;
+  color: #d4edda;
+}
+
+.alert-danger {
+  background-color: #721c24;
+  border-color: #721c24;
+  color: #f8d7da;
+}
+
+.alert-warning {
+  background-color: #856404;
+  border-color: #856404;
+  color: #fff3cd;
+}
+
+.alert-info {
+  background-color: #0c5460;
+  border-color: #0c5460;
+  color: #d1ecf1;
 }

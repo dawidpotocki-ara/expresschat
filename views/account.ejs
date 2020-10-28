@@ -1,0 +1,58 @@
+<%- include('partials/head'); %>
+
+  <div class="settings">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="bg-alt d-flex d-sm-flex flex-column h-100">
+      <!-- Setting list -->
+      <div class="flex-scroll-y scrollbar-alt-alt m-2">
+        <div class="sidebar-option selected">
+          <span class="fas fa-cog my-1 my-sm-0"></span>
+          <span class="d-none d-sm-block ml-2">General</span>
+        </div>
+        <a href="/features" class="sidebar-option">
+          <span class="fas fa-question-circle my-1 my-sm-0"></span>
+          <span class="d-none d-sm-block ml-2">Help &amp; About</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Options -->
+    <main id="main" class="d-flex flex-column w-100 h-100">
+      <div class="mainbox p-3 d-flex flex-column flex-md-row flex-wrap mx-auto w-100">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <h2>Settings</h2>
+          <a class="btn-close-settings fas fa-times btn text-body pl-2 pr-0 py-2 h5" href="/app"></a>
+        </div>
+        <form class="w-100" action="/account" method="post" enctype="multipart/form-data">
+          <% if (locals.errors && locals.errors.profile) { %>
+            <% locals.errors.profile.forEach(function(error) { %>
+              <p class="settingsbox alert alert-warning mb-0 w-100" role="alert"><%= error %></p>
+            <% }) %>
+          <% } %>
+
+          <div class="d-flex flex-col w-100 mr-md-4">
+            <div class="my-2 mr-2">
+              <% if (!locals.user.photoURL) { %>
+                <img src="/images/user.svg" id="avatar" class="rounded-lg" width="128" height="128" />
+              <% } else { %>
+                <img src="<%= locals.user.photoURL %>" id="avatar" class="rounded-lg" width="128" height="128" />
+              <% } %>
+            </div>
+            <div class="w-100">
+              <input class="form-control bg-alt border-0 text-body my-2" type="text" name="displayName" placeholder="Display name" value="<%= locals.user.displayName %>">
+              <input class="form-control bg-alt border-0 text-body my-2" type="email" name="email" placeholder="Email" value="<%= locals.user.email %>">
+              <input class="mb-2" type="file" name="avatar">
+              <input type="submit" class="btn btn-primary d-block mb-2" value="Update">
+            </div>
+          </div>
+        </form>
+        <h3 class="mt-3">Password</h3>
+        <form class="w-100" action="/password" method="post" >
+          <input class="form-control bg-alt border-0 text-body my-2" type="password" name="password" placeholder="Password">
+          <input type="submit" class="btn btn-primary d-block mb-2" value="Update">
+        </form>
+      </div>
+    </main>
+  </div>
+
+<%- include('partials/script'); %>
